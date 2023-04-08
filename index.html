@@ -11,13 +11,13 @@
 <h3>Buchlänge</h3>
 <form>
     <input id="dTH" type="number" pattern="\d*" placeholder="Stunden"><br>
-    <input id="dTM" type="number" placeholder="Minuten"><br><br>
+    <input id="dTM" type="number" pattern="\d*" placeholder="Minuten"><br><br>
 </form>
 
 <h3>Verbleibende Zeit</h3>
 <form>
-    <input id="dLH" type="number" placeholder="Stunden"><br>
-    <input id="dLM" type="number" placeholder="Minuten"><br>
+    <input id="dLH" type="number" pattern="\d*" placeholder="Stunden"><br>
+    <input id="dLM" type="number" pattern="\d*" placeholder="Minuten"><br>
     <input id="btn" type="button" value="Berechnen">
 </form>
 
@@ -49,14 +49,12 @@
     
     <style>
     
-        body {
-        width: 100%;
-        }
         input {
         width: 90%;
         display: block;
         margin-right: auto;
         margin-left: auto;
+        height: 10%
         }
             
 </body>
