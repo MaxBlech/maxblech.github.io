@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Audio Progress Tracker</title>
+</head>
+<body>
+
+<h1>Audio Progress Tracker</h1>
+
+<h3>Buchlänge</h3>
+<form>
+    <label for="fname">Stunden:</label><br>
+    <input id="dTH" type="number"><br><br>
+    <label for="fname">Minuten:</label><br>
+    <input id="dTM" type="number"><br><br>
+</form>
+
+<h3>Verbleibende Zeit</h3>
+<form>
+    <label for="fname">Stunden:</label><br>
+    <input id="dLH" type="number"><br><br>
+    <label for="fname">Minuten:</label><br>
+    <input id="dLM" type="number"><br><br>
+    <input id="btn" type="button" value="Berechnen">
+</form>
+
+<p id="result"></p>
+
+<script>
+    
+    function formel() {
+        var durationTotalH = document.getElementById("dTH").value;
+        var durationTotalM = document.getElementById("dTM").value;
+        var durationLeftH = document.getElementById("dLH").value;
+        var durationLeftM = document.getElementById("dLM").value;
+
+        var durationTotal = durationTotalH * 60 + durationTotalM;
+        var durationLeft = durationLeftH * 60 + durationLeftM;
+
+        var percentage = 100 * durationLeft / durationTotal;
+
+        document.getElementById("result").innerHTML = (Math.round(percentage * 10) / 10) + "%";
+        
+    }
+    
+    document.getElementById("btn").onclick = function() {
+     formel();
+    }
+    
+    </script>
+</body>
+</html>
