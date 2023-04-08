@@ -34,10 +34,10 @@
         var durationTotalM = document.getElementById("dTM").value;
         var durationLeftH = document.getElementById("dLH").value;
         var durationLeftM = document.getElementById("dLM").value;
-
-        var durationTotal = durationTotalH * 60 + durationTotalM;
-        var durationLeft = durationLeftH * 60 + durationLeftM;
-
+  
+        var durationTotal = durationTotalH * 60 + parseInt(durationTotalM);
+        var durationLeft = (durationLeftH * 60) + parseInt(durationLeftM);
+        
         var percentage = 100 * durationLeft / durationTotal;
 
         document.getElementById("result").innerHTML = (Math.round(percentage * 10) / 10) + "%";
