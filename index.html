@@ -10,7 +10,7 @@
 
 <h3>Buchlänge</h3>
 <form>
-    <input id="dTH" type="number" pattern="\d*" placeholder="Stunden"><br>
+    <input id="dTH" type="number" pattern="\d*" placeholder="Stunden" autofocus><br>
     <input id="dTM" type="number" pattern="\d*" placeholder="Minuten"><br><br>
 </form>
 
@@ -25,6 +25,13 @@
 <p id="result"></p>
 
 <script>
+    
+    //function getLength() {
+         //localStorage.getItem('hour');
+        //localStorage.getItem('minute');
+       // }
+        
+    //getLength();
     
     function formel() {
         var durationTotalH = document.getElementById("dTH").value;
@@ -54,7 +61,7 @@
         display: block;
         margin-right: auto;
         margin-left: auto;
-        height: 10%
+        height: 50px;
         }
             
 </body>
