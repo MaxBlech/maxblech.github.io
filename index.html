@@ -10,21 +10,18 @@
 
 <h3>Buchlänge</h3>
 <form>
-    <label for="fname">Stunden:</label><br>
-    <input id="dTH" type="number"><br><br>
-    <label for="fname">Minuten:</label><br>
-    <input id="dTM" type="number"><br><br>
+    <input id="dTH" type="number" placeholder="Stunden"><br>
+    <input id="dTM" type="number" placeholder="Minuten"><br><br>
 </form>
 
 <h3>Verbleibende Zeit</h3>
 <form>
-    <label for="fname">Stunden:</label><br>
-    <input id="dLH" type="number"><br><br>
-    <label for="fname">Minuten:</label><br>
-    <input id="dLM" type="number"><br><br>
+    <input id="dLH" type="number" placeholder="Stunden"><br>
+    <input id="dLM" type="number" placeholder="Minuten"><br>
     <input id="btn" type="button" value="Berechnen">
 </form>
 
+<h3>Fortschritt:</h3>
 <p id="result"></p>
 
 <script>
@@ -36,9 +33,9 @@
         var durationLeftM = document.getElementById("dLM").value;
   
         var durationTotal = durationTotalH * 60 + parseInt(durationTotalM);
-        var durationLeft = (durationLeftH * 60) + parseInt(durationLeftM);
-        
-        var percentage = 100 * durationLeft / durationTotal;
+        var durationLeft = durationLeftH * 60 + parseInt(durationLeftM);
+        var durationHeard = parseInt(durationTotal) - parseInt(durationLeft);
+        var percentage = 100 * durationHeard / durationTotal;
 
         document.getElementById("result").innerHTML = (Math.round(percentage * 10) / 10) + "%";
         
@@ -49,5 +46,18 @@
     }
     
     </script>
+    
+    <style>
+    
+        body {
+        width: 100%;
+        }
+        input {
+        width: 90%;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        }
+            
 </body>
 </html>
