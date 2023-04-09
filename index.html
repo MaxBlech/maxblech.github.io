@@ -44,12 +44,12 @@
 
     h1 {
         font-family: 'Inter', sans-serif;
-        font-size: 86px;
+        font-size: 80px;
     }
 
     .head {
         font-family: 'Inter', sans-serif;
-        font-size: 70px;
+        font-size: 60px;
     }
 
    #full {
@@ -73,6 +73,7 @@
         height: 70vw;
         align-items: center;
         border-radius: 16px;
+        pointer-events: auto;
     }
 
     p {
@@ -119,7 +120,7 @@
         width: 80vw;
         height: 100px;
         color: #ffffff;
-        margin-top: 30px;
+        margin-top: 40px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -159,6 +160,10 @@
     document.getElementById("btn").onclick = function() {
         document.getElementById("boxed").style.display = "flex";
      formel();
+    }
+
+    document.getElementById("boxed").onclick = function() {
+        document.getElementById("boxed").style.display = "none";
     }
     
     </script>
