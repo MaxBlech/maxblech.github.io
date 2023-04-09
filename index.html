@@ -18,20 +18,24 @@
 <h3>Buchlänge</h3>
 <form>
     <input id="dTH" type="number" pattern="\d*"><br>
-    <p>:</p>
+    <p class="dPunkt">:</p>
     <input id="dTM" type="number" pattern="\d*"><br>
 </form>
 
 <h3>Verbleibende Zeit</h3>
 <form>
     <input id="dLH" type="number" pattern="\d*"><br>
-    <p>:</p>
+    <p class="dPunkt">:</p>
     <input id="dLM" type="number" pattern="\d*"><br>
 </form>
 
 <input id="btn" type="button" value="Berechnen">
 
-<div><h3>52,5%</h3></div>
+<div id="full">
+    <div id="boxed">
+        <p>52,5%</p>
+    </div>
+</div>
 
 
 
@@ -88,29 +92,52 @@
             color: #808080;
             margin-left: 8px;
             margin-right: 8px;
-            margin-top: 36px;
         }
 
-        div {
+        #full {
+            display: flex;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+
+        }
+
+        #boxed {
             display: flex;
             justify-content: center;
             position: fixed;
-            background-color: rgba(0,0,0,0.50);
-            width: 200px;
-            height: 200px;
-            bottom: 0;
+            background-color: rgba(0,0,0,0.8);
+            width: 70vw;
+            height: 70vw;
+            align-items: center;
+            border-radius: 16px;
+        }
+
+        p {
+            font-family: 'Inter', sans-serif;
+            font-size: 16vw;
+            color: #ffffff;
+        }
+
+        .dPunkt {
+            color: #808080;
+            font-size: 48px;
         }
 
         form {
             display: flex;
             flex-direction: row;
             justify-content: center;
+            align-items: center;
         }
 
         input[type=number] {
             border: none;
-            width: 140px;
-            height: 140px;
+            width: 40vw;
+            height: 40vw;
             font-family: 'Inter', sans-serif;
             font-size: 72px;
             border-radius: 8px;
@@ -124,15 +151,19 @@
             justify-content: center;
             background-color: #000000;
             border-radius: 8px;
+            border: none;
             font-family: 'Inter', sans-serif;
             font-size: 16px;
-            width: 311px;
+            width: 80vw;
             height: 46px;
             color: #ffffff;
             margin-top: 40px;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 10px 0 20px rgba(0,0,0,0.05);
+        }
+
+        input[type=button]:active {
+            background-color: rgba(0,0,0,0.8);
         }
 
         </style>   
