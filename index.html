@@ -142,12 +142,15 @@
 
 <script>
     
-    //function getLength() {
-         //localStorage.getItem('hour');
-        //localStorage.getItem('minute');
-       // }
+    function getLength() {
+        var lsHour = localStorage.getItem('hour');
+        var lsMinute = localStorage.getItem('minute');
+        console.log(lsHour + " " + lsMinute);
+        document.getElementById("dTH").value = lsHour;
+        document.getElementById("dTM").value = lsMinute;
+        }
         
-    //getLength();
+    getLength();
     
     document.getElementById("dTH").select();
     
@@ -163,7 +166,8 @@
         var percentage = 100 * durationHeard / durationTotal;
 
         document.getElementById("result").innerHTML = (Math.round(percentage * 10) / 10) + "%";
-        
+        localStorage.setItem('hour', durationTotalH);
+        localStorage.setItem('minute', durationTotalM);
     }
     
     document.getElementById("btn").onclick = function() {
