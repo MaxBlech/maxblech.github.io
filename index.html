@@ -33,7 +33,7 @@
 
 <div id="full">
     <div id="boxed">
-        <p>52,5%</p>
+        <p id="result"></p>
     </div>
 </div>
 
@@ -66,6 +66,7 @@
     }
     
     document.getElementById("btn").onclick = function() {
+        document.getElementById("boxed").style.display = "flex";
      formel();
     }
     
@@ -78,12 +79,12 @@
 
         h1 {
             font-family: 'Inter', sans-serif;
-            font-size: 34px;
+            font-size: 102px;
         }
 
         h3 {
             font-family: 'Inter', sans-serif;
-            font-size: 21px;
+            font-size: 63px;
         }
 
         p {
@@ -102,11 +103,12 @@
             top: 0;
             width: 100vw;
             height: 100vh;
+            pointer-events: none;
 
         }
 
         #boxed {
-            display: flex;
+            display: none;
             justify-content: center;
             position: fixed;
             background-color: rgba(0,0,0,0.8);
