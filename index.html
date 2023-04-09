@@ -22,7 +22,7 @@
     <input id="dTM" type="number" pattern="\d*"><br>
 </form>
 
-<h3 class="head" style="font-size: 200px">Verbleibende Zeit</h3>
+<h3 class="head">Verbleibende Zeit</h3>
 <form>
     <input id="dLH" type="number" pattern="\d*"><br>
     <p class="dPunkt">:</p>
@@ -37,7 +37,98 @@
     </div>
 </div>
 
+<style>
+    html {
+        background-color: #F2F1F6;
+    }    
 
+    h1 {
+        font-family: 'Inter', sans-serif;
+        font-size: 86px;
+    }
+
+    .head {
+        font-family: 'Inter', sans-serif;
+        font-size: 70px;
+    }
+
+   #full {
+        display: flex;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+
+    }
+
+    #boxed {
+        display: none;
+        justify-content: center;
+        position: fixed;
+        background-color: rgba(0,0,0,0.8);
+        width: 70vw;
+        height: 70vw;
+        align-items: center;
+        border-radius: 16px;
+    }
+
+    p {
+        font-family: 'Inter', sans-serif;
+        font-size: 16vw;
+        color: #ffffff;
+    }
+
+    .dPunkt {
+        margin-left: 8px;
+        margin-right: 8px;
+        font-family: 'Inter', sans-serif;
+        color: #808080;
+        font-size: 70px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type=number] {
+        border: none;
+        width: 30vw;
+        height: 30vw;
+        font-family: 'Inter', sans-serif;
+        font-size: 120px;
+        border-radius: 8px;
+        color: #808080;
+        text-align: center;
+        box-shadow: 10px 0 20px rgba(0,0,0,0.05);
+    }
+
+    input[type=button] {
+        display: flex;
+        justify-content: center;
+        background-color: #000000;
+        border-radius: 8px;
+        border: none;
+        font-family: 'Inter', sans-serif;
+        font-size: 3em;
+        width: 80vw;
+        height: 100px;
+        color: #ffffff;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    input[type=button]:active {
+        background-color: rgba(0,0,0,0.8);
+    }
+
+    </style>   
 
 <script>
     
@@ -71,98 +162,5 @@
     }
     
     </script>
-    
-    <style>
-        html {
-            background-color: #F2F1F6;
-        }    
-
-        h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 86px;
-        }
-
-        .head {
-            font-family: 'Inter', sans-serif;
-            font-size: 70px;
-        }
-
-       #full {
-            display: flex;
-            position: fixed;
-            justify-content: center;
-            align-items: center;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-
-        }
-
-        #boxed {
-            display: none;
-            justify-content: center;
-            position: fixed;
-            background-color: rgba(0,0,0,0.8);
-            width: 70vw;
-            height: 70vw;
-            align-items: center;
-            border-radius: 16px;
-        }
-
-        p {
-            font-family: 'Inter', sans-serif;
-            font-size: 16vw;
-            color: #ffffff;
-        }
-
-        .dPunkt {
-            margin-left: 8px;
-            margin-right: 8px;
-            font-family: 'Inter', sans-serif;
-            color: #808080;
-            font-size: 70px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-
-        input[type=number] {
-            border: none;
-            width: 30vw;
-            height: 30vw;
-            font-family: 'Inter', sans-serif;
-            font-size: 120px;
-            border-radius: 8px;
-            color: #808080;
-            text-align: center;
-            box-shadow: 10px 0 20px rgba(0,0,0,0.05);
-        }
-
-        input[type=button] {
-            display: flex;
-            justify-content: center;
-            background-color: #000000;
-            border-radius: 8px;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 3em;
-            width: 80vw;
-            height: 100px;
-            color: #ffffff;
-            margin-top: 30px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        input[type=button]:active {
-            background-color: rgba(0,0,0,0.8);
-        }
-
-        </style>   
 </body>
 </html>
