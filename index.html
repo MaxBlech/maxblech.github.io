@@ -2,31 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Audio Progress Tracker</title>
+    <title>Progress Converter</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#F2F1F6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<h1>Audio Progress Tracker</h1>
+<h1>Progress Converter</h1>
 
 <h3>Buchlänge</h3>
 <form>
-    <input id="dTH" type="number" pattern="\d*" placeholder="Stunden"><br>
-    <input id="dTM" type="number" pattern="\d*" placeholder="Minuten"><br>
+    <input id="dTH" type="number" pattern="\d*"><br>
+    <p>:</p>
+    <input id="dTM" type="number" pattern="\d*"><br>
 </form>
 
 <h3>Verbleibende Zeit</h3>
 <form>
-    <input id="dLH" type="number" pattern="\d*" placeholder="Stunden"><br>
-    <input id="dLM" type="number" pattern="\d*" placeholder="Minuten"><br>
-    <input id="btn" type="button" value="Berechnen">
+    <input id="dLH" type="number" pattern="\d*"><br>
+    <p>:</p>
+    <input id="dLM" type="number" pattern="\d*"><br>
 </form>
 
-<h3>Fortschritt:</h3>
-<p id="result"></p>
+<input id="btn" type="button" value="Berechnen">
+
+<div><h3>52,5%</h3></div>
+
+
 
 <script>
     
@@ -61,23 +68,73 @@
     </script>
     
     <style>
-    
-        input {
-        width: 90%;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        height: 40px;
-        font-size: 18px;
+        html {
+            background-color: #F2F1F6;
+        }    
+
+        h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 34px;
         }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 21px;
+        }
+
+        p {
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
+            color: #808080;
+            margin-left: 8px;
+            margin-right: 8px;
+            margin-top: 36px;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            background-color: rgba(0,0,0,0.50);
+            width: 200px;
+            height: 200px;
+            bottom: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        input[type=number] {
+            border: none;
+            width: 140px;
+            height: 140px;
+            font-family: 'Inter', sans-serif;
+            font-size: 72px;
+            border-radius: 8px;
+            color: #808080;
+            text-align: center;
+            box-shadow: 10px 0 20px rgba(0,0,0,0.05);
+        }
+
         input[type=button] {
-        height: 50px;
-        background-color: #000000;
-        color: #ffffff;
+            display: flex;
+            justify-content: center;
+            background-color: #000000;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            width: 311px;
+            height: 46px;
+            color: #ffffff;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 10px 0 20px rgba(0,0,0,0.05);
         }
-        input::placeholder {
-        font-size: 18px;
-        }
-            
+
+        </style>   
 </body>
 </html>
