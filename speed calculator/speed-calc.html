@@ -22,20 +22,15 @@
     <input id="dTM" type="number" pattern="\d*"><br>
 </form>
 
-<h3 class="head">Verbleibende Zeit</h3>
-<form>
-    <input id="dLH" type="number" pattern="\d*"><br>
-    <p class="dPunkt">:</p>
-    <input id="dLM" type="number" pattern="\d*"><br>
-</form>
+<h3 class="head">Wiedergabegeschwindigkeit</h3>
+<div class="slidecontainer">
+    <input type="range" min="1" max="40" value="10" class="slider" id="rangeSlider">
+    <h4 id="valueSlider"></h4>
+  </div>
 
 <input id="btn" type="button" value="Berechnen">
+<a id="ghost-btn" href="../index.html">Wechseln zu Book Converter</a>
 
-<div id="full">
-    <div id="boxed">
-        <p id="result"></p>
-    </div>
-</div>
 
 <style>
     html {
@@ -52,30 +47,6 @@
         font-family: 'Inter', sans-serif;
         font-size: 50px;
         margin-left: 16px;
-    }
-
-   #full {
-        display: flex;
-        position: fixed;
-        justify-content: center;
-        align-items: center;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        pointer-events: none;
-
-    }
-
-    #boxed {
-        display: none;
-        justify-content: center;
-        position: fixed;
-        background-color: rgba(0,0,0,0.8);
-        width: 70vw;
-        height: 70vw;
-        align-items: center;
-        border-radius: 16px;
-        pointer-events: auto;
     }
 
     p {
@@ -138,6 +109,49 @@
         background-color: rgba(0,0,0,0.8);
     }
 
+    #ghost-btn {
+        background-color: #F2F1F6;
+        color: #000000;
+        display: flex;
+        justify-content: center;
+        border-radius: 8px;
+        border: none;
+        font-family: 'Inter', sans-serif;
+        font-size: 40px;
+        width: 80vw;
+        height: 100px;
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        text-decoration: none;
+    }
+
+    .slidecontainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 80%;
+        height: 25px;
+        background: #ffffff;
+        outline: none;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        background: #000000;
+        border-radius: 100%;
+}
+
     </style>   
 
 <script>
@@ -157,22 +171,21 @@
      function formel() {
         var durationTotalH = document.getElementById("dTH").value;
         var durationTotalM = document.getElementById("dTM").value;
-        var durationLeftH = document.getElementById("dLH").value;
-        var durationLeftM = document.getElementById("dLM").value;
   
-        var durationTotal = durationTotalH * 60 + parseInt(durationTotalM);
-        var durationLeft = durationLeftH * 60 + parseInt(durationLeftM);
-        var durationHeard = parseInt(durationTotal) - parseInt(durationLeft);
-        var percentage = 100 * durationHeard / durationTotal;
 
-        document.getElementById("result").innerHTML = (Math.round(percentage * 10) / 10) + "%";
+
+        var durationTotal = durationTotalH * 60 + parseInt(durationTotalM);
+
         localStorage.setItem('hour', durationTotalH);
         localStorage.setItem('minute', durationTotalM);
     }
-    
-    document.getElementById("btn").onclick = function() {
-        document.getElementById("boxed").style.display = "flex";
-     formel();
+    var slider = document.getElementById("rangeSlider");
+    var output = document.getElementById("valueSlider");
+
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
     }
 
     document.getElementById("boxed").onclick = function() {
