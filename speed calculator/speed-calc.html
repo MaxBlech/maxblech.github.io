@@ -187,7 +187,9 @@
     newTime.innerHTML = lsHour + " Stunden " + lsMinute + " Minuten"
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/10).toFixed(1);
-        newTime.innerHTML = (lsHour * (this.value/10)) + " Stunden" + (lsMinute * (this.value/10)) + " Minuten";
+        var newHour = Math.round(lsHour / (this.value/10));
+        var newMinute = Math.round(lsMinute / (this.value/10));
+        newTime.innerHTML = newHour + " Stunden" + newMinute + " Minuten";
     }
 
     document.getElementById("boxed").onclick = function() {
