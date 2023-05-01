@@ -50,12 +50,12 @@
     var blHour = localStorage.getItem('hourBook');
     var blMinute = localStorage.getItem('minuteBook');
 
-    function getLength() {
+    function getLengthAlt() {
         document.getElementById("blH").value = blHour;
         document.getElementById("blM").value = blMinute;
         }
         
-    getLength();
+    getLengthAlt();
     
     var totalMinutes = parseInt(blHour) * 60 + parseInt(blMinute);
     
