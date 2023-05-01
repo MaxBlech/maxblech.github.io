@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Speed Calculator</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#F2F1F6">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Speed Calculator</h1>
+
+<h3 class="head">Buchlänge</h3>
+<form>
+    <input id="dTH" type="number" pattern="\d*"><br>
+    <p class="dPunkt">:</p>
+    <input id="dTM" type="number" pattern="\d*"><br>
+</form>
+
+<h3 class="head">Neue Hördauer</h3>
+<form>
+    <input id="nH" type="number" pattern="\d*"><br>
+    <p class="dPunkt">:</p>
+    <input id="nM" type="number" pattern="\d*"><br>
+</form>
+
+<h3 class="head">Wiedergabegeschwindigkeit</h3>
+<div class="slidecontainer">
+    <input type="range" min="5" max="300" value="100" step="5" class="slider" id="rangeSlider">
+    <h4 id="valueSlider"></h4>
+  </div>
+
+<a id="ghost-btn" href="../index.html">Wechseln zu Book Converter</a>
+
+
+    <style>
+    </style>   
+
+<script>
+    var lsHour = localStorage.getItem('hour');
+    var lsMinute = localStorage.getItem('minute');
+    
+    function getLength() {
+        document.getElementById("dTH").value = lsHour;
+        document.getElementById("dTM").value = lsMinute;
+        }
+        
+    getLength();
+    
+    document.getElementById("dTH").select();
+    
+    var slider = document.getElementById("rangeSlider");
+    var timeAdj = document.getElementById("valueSlider");
+    var newHour = document.getElementById("nH");
+    var newMinute = document.getElementById("nM");
+    
+    timeAdj.innerHTML = (slider.value/100).toFixed(2);
+    newHour.value = lsHour;
+    newMinute.value = lsMinute;
+    
+    var totalTime = lsHour * 60 + lsMinute;
+    
+    slider.oninput = function() {
+        timeAdj.innerHTML = (this.value/100).toFixed(2);
+        
+        newHour.value = Math.round(lsHour / (this.value/100));
+        newMinute.value = Math.round(lsMinute / (this.value/100));
+    }
+
+    document.getElementById("boxed").onclick = function() {
+        document.getElementById("boxed").style.display = "none";
+    }
+    
+    </script>
+</body>
+</html>
