@@ -38,7 +38,7 @@
   </div>
 
 <a id="ghost-btn" href="../index.html">Wechseln zu Book Converter</a>
-
+<p id="tester"></p>
 
     <style>
     </style>   
@@ -65,12 +65,12 @@
     newHour.value = lsHour;
     newMinute.value = lsMinute;
     
-    var totalTime = lsHour * 60 + lsMinute;
-    
+    var totalMinutes = lsHour * 60 + lsMinute;
+    document.getElementById("tester").innerHTML = totalMinutes;
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/100).toFixed(2);
         
-        newHour.value = Math.floor(totalTime / (this.value/100));
+        //newHour.value = 
     }
 
     document.getElementById("boxed").onclick = function() {
