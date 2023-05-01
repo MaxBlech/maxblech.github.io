@@ -32,7 +32,7 @@
 
 <h3 class="head">Wiedergabegeschwindigkeit</h3>
 <div class="slidecontainer">
-    <input type="range" min="5" max="300" value="100" class="slider" id="rangeSlider">
+    <input type="range" min="5" max="300" value="100" step="5" class="slider" id="rangeSlider">
     <h4 id="valueSlider"></h4>
   </div>
 
@@ -51,8 +51,8 @@
     }
     
     h4 {
-        font-family: 'Roboto Mono', monospace; we
-        font-size: 80px;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 40px;
         margin-left: 32px;
     }
     
@@ -197,14 +197,7 @@
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/100).toFixed(2);
         
-        var divideHour = Math.round((totalTime / (this.value/100))/60);
-        
-        if(divideHour < 1) {
-            newHour.value = 0;
-        } else {
-            newHour.value = divideHour;
-            }
-            
+        newHour.value = Math.round(lsHour / (this.value/100));
         newMinute.value = Math.round(lsMinute / (this.value/100));
     }
 
