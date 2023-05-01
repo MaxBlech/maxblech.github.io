@@ -31,7 +31,7 @@
 
 <h3 class="head">Wiedergabegeschwindigkeit</h3>
 <div class="slidecontainer">
-    <input type="range" min="1" max="30" value="5" class="slider" id="rangeSlider">
+    <input type="range" min="5" max="300" value="100" class="slider" id="rangeSlider">
     <h4 id="valueSlider"></h4>
   </div>
 
@@ -52,7 +52,7 @@
     h4 {
         font-family: 'Inter', sans-serif;
         font-size: 40px;
-        margin-left: 16px;
+        margin-left: 32px;
     }
     
     .head {
@@ -149,7 +149,7 @@
     .slider {
         -webkit-appearance: none;
         appearance: none;
-        width: 80%;
+        width: 70%;
         height: 25px;
         background: #ffffff;
         outline: none;
@@ -187,14 +187,14 @@
     var newHour = document.getElementById("nH");
     var newMinute = document.getElementById("nM");
     
-    timeAdj.innerHTML = (slider.value/10).toFixed(2);
+    timeAdj.innerHTML = (slider.value/100).toFixed(2);
     newHour.value = lsHour;
     newMinute.value = lsMinute;
     
     slider.oninput = function() {
-        timeAdj.innerHTML = (this.value/10).toFixed(2);
-        newHour.value = Math.round(lsHour / (this.value/10));
-        newMinute.value = Math.round(lsMinute / (this.value/10));
+        timeAdj.innerHTML = (this.value/100).toFixed(2);
+        newHour.value = Math.round(lsHour / (this.value/100));
+        newMinute.value = Math.round(lsMinute / (this.value/100));
     }
 
     document.getElementById("boxed").onclick = function() {
