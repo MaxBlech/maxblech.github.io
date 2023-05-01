@@ -141,7 +141,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        flex-direction: column-reverse;
+        flex-direction: row;
         align-items: center;
     }
 
@@ -187,13 +187,13 @@
     var newMinute = document.getElementById("nM");
     
     timeAdj.innerHTML = (slider.value/10).toFixed(1);
-    newHour.innerHTML = lsHour;
-    newMinute.innerHTML = lsMinute;
+    newHour.value = lsHour;
+    newMinute.value = lsMinute;
     
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/10).toFixed(1);
-        newHour.innerHTML = Math.round(lsHour / (this.value/10));
-        newMinute.innerHTML = Math.round(lsMinute / (this.value/10));
+        newHour.value = Math.round(lsHour / (this.value/10));
+        newMinute.value = Math.round(lsMinute / (this.value/10));
     }
 
     document.getElementById("boxed").onclick = function() {
