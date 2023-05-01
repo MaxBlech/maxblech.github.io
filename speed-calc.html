@@ -78,7 +78,7 @@
         var splitTime = newTime.toString().split('.');
         
         newHour.value = splitTime[0];
-        newMinute.value = Math.floor((splitTime[0] - newTime) * 60);
+        newMinute.value = Math.floor((newTime - splitTime[0]) * 60);
     }
 
     document.getElementById("boxed").onclick = function() {
