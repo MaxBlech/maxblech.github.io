@@ -70,8 +70,7 @@
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/100).toFixed(2);
         
-        newHour.value = Math.round(lsHour / (this.value/100));
-        newMinute.value = Math.round(lsMinute / (this.value/100));
+        newHour.value = Math.floor(totalTime / (this.value/100));
     }
 
     document.getElementById("boxed").onclick = function() {
