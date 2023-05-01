@@ -29,9 +29,11 @@
   </div>
 
 <h3 class="head">Neue Hördauer</h3>
-<div class="slidecontainer">
-    <h4 id="valueLength">27 Stunden 45 Minuten</h4>
-  </div>
+<form>
+    <input id="nH" type="number" pattern="\d*"><br>
+    <p class="dPunkt">:</p>
+    <input id="nM" type="number" pattern="\d*"><br>
+</form>
 
 <a id="ghost-btn" href="../index.html">Wechseln zu Book Converter</a>
 
@@ -181,15 +183,15 @@
     }
     var slider = document.getElementById("rangeSlider");
     var timeAdj = document.getElementById("valueSlider");
-    var newTime = document.getElementById("valueLength");
+    var newHour = document.getElementById("nH");
+    var newMinute = document.getElementById("nM");
     
     timeAdj.innerHTML = (slider.value/10).toFixed(1);
     newTime.innerHTML = lsHour + " Stunden " + lsMinute + " Minuten"
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/10).toFixed(1);
-        var newHour = Math.round(lsHour / (this.value/10));
-        var newMinute = Math.round(lsMinute / (this.value/10));
-        newTime.innerHTML = newHour + " Stunden" + newMinute + " Minuten";
+        newHour.innerHTML = Math.round(lsHour / (this.value/10));
+        newMinute.innerHTML = Math.round(lsMinute / (this.value/10));
     }
 
     document.getElementById("boxed").onclick = function() {
