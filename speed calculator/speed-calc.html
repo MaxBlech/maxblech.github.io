@@ -22,18 +22,18 @@
     <input id="dTM" type="number" pattern="\d*"><br>
 </form>
 
-<h3 class="head">Wiedergabegeschwindigkeit</h3>
-<div class="slidecontainer">
-    <input type="range" min="1" max="40" value="10" class="slider" id="rangeSlider">
-    <h4 id="valueSlider"></h4>
-  </div>
-
 <h3 class="head">Neue Hördauer</h3>
 <form>
     <input id="nH" type="number" pattern="\d*"><br>
     <p class="dPunkt">:</p>
     <input id="nM" type="number" pattern="\d*"><br>
 </form>
+
+<h3 class="head">Wiedergabegeschwindigkeit</h3>
+<div class="slidecontainer">
+    <input type="range" min="1" max="40" value="10" class="slider" id="rangeSlider">
+    <h4 id="valueSlider"></h4>
+  </div>
 
 <a id="ghost-btn" href="../index.html">Wechseln zu Book Converter</a>
 
@@ -187,7 +187,9 @@
     var newMinute = document.getElementById("nM");
     
     timeAdj.innerHTML = (slider.value/10).toFixed(1);
-    newTime.innerHTML = lsHour + " Stunden " + lsMinute + " Minuten"
+    newHour.innerHTML = lsHour;
+    newMinute.innerHTML = lsMinute;
+    
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/10).toFixed(1);
         newHour.innerHTML = Math.round(lsHour / (this.value/10));
