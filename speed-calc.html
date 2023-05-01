@@ -65,11 +65,14 @@
     newHour.value = lsHour;
     newMinute.value = lsMinute;
     
-    var totalMinutes = lsHour * 60 + lsMinute;
+    var totalMinutes = parseInt(lsHour) * 60 + parseInt(lsMinute);
+    
     document.getElementById("tester").innerHTML = totalMinutes;
+    
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/100).toFixed(2);
         
+        var newTime = totalMinutes / this.value;
         //newHour.value = 
     }
 
