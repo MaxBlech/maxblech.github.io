@@ -61,6 +61,11 @@
     document.getElementById("btn").onclick = function() {
         totalMinutes = parseInt(blHour) * 60 + parseInt(blMinute);
         
+        document.getElementById("blH").value = blHour;
+        document.getElementById("blM").value = blMinute;
+        
+        localStorage.setItem(blHour, 'hourBook');
+        localStorage.setItem(blMinute, 'minuteBook');
     }
     
     var slider = document.getElementById("rangeSlider");
