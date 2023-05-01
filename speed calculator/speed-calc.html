@@ -185,9 +185,9 @@
     
     timeAdj.innerHTML = slider.value/10;
     newTime.innerHTML = lsHour + " Stunden " + lsMinute + " Minuten"
-    slider.oninput = function() {
-        timeAdj.innerHTML = this.value;
-        newTime.innerHTML = parseInt(lsHour) / parseInt(slider);
+    slider.oninput = function(lsHour) {
+        timeAdj.innerHTML = this.value/10;
+        newTime.innerHTML = parseInt(lsHour) / parseInt(this);
     }
 
     document.getElementById("boxed").onclick = function() {
