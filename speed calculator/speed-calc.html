@@ -192,9 +192,19 @@
     newHour.value = lsHour;
     newMinute.value = lsMinute;
     
+    var totalTime = lsHour * 60 + lsMinute;
+    
     slider.oninput = function() {
         timeAdj.innerHTML = (this.value/100).toFixed(2);
-        newHour.value = Math.round(lsHour / (this.value/100));
+        
+        var divideHour = Math.round((totalTime / (this.value/100))/60);
+        
+        if(divideHour < 1) {
+            newHour.value = 0;
+        } else {
+            newHour.value = divideHour;
+            }
+            
         newMinute.value = Math.round(lsMinute / (this.value/100));
     }
 
