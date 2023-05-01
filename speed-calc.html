@@ -24,7 +24,7 @@
     <input id="blM" type="number" pattern="\d*"><br>
 </form>
 
-<input id="btn" type="button" value="Aktualisieren">
+<input id="btn-refresh" type="button" value="Aktualisieren">
 
 <h3 class="head">Neue Hördauer</h3>
 <form>
@@ -46,10 +46,12 @@
     </style>   
 
 <script>
-    var blHour = localStorage.getItem('hourBook');
-    var blMinute = localStorage.getItem('minuteBook');
-    
+
     function getLength() {
+        
+        var blHour = localStorage.getItem('hourBook');
+        var blMinute = localStorage.getItem('minuteBook');
+        
         document.getElementById("blH").value = blHour;
         document.getElementById("blM").value = blMinute;
         }
@@ -58,11 +60,12 @@
     
     var totalMinutes = parseInt(blHour) * 60 + parseInt(blMinute);
     
-    document.getElementById("btn").onclick = function() {
-        totalMinutes = parseInt(blHour) * 60 + parseInt(blMinute);
+    document.getElementById("btn-refresh").onclick = function() {
         
         document.getElementById("blH").value = blHour;
         document.getElementById("blM").value = blMinute;
+        
+        totalMinutes = parseInt(blHour) * 60 + parseInt(blMinute);
         
         localStorage.setItem('hourBook', blHour);
         localStorage.setItem('minuteBook', blMinute);
