@@ -47,11 +47,10 @@
 
 <script>
 
+    var blHour = localStorage.getItem('hour');
+    var blMinute = localStorage.getItem('minute');
+
     function getLength() {
-        
-        var blHour = localStorage.getItem('hourBook');
-        var blMinute = localStorage.getItem('minuteBook');
-        
         document.getElementById("blH").value = blHour;
         document.getElementById("blM").value = blMinute;
         }
