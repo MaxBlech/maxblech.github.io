@@ -183,11 +183,11 @@
     var timeAdj = document.getElementById("valueSlider");
     var newTime = document.getElementById("valueLength");
     
-    timeAdj.innerHTML = (slider.value/10).toFixed(2);
+    timeAdj.innerHTML = (slider.value/10).toFixed(1);
     newTime.innerHTML = lsHour + " Stunden " + lsMinute + " Minuten"
     slider.oninput = function() {
-        timeAdj.innerHTML = (this.value/10).toFixed(2);
-        newTime.innerHTML = lsMinute + " Stunden";
+        timeAdj.innerHTML = (this.value/10).toFixed(1);
+        newTime.innerHTML = (lsHour * (this.value/10)) + " Stunden" + (lsMinute * (this.value/10)) + " Minuten";
     }
 
     document.getElementById("boxed").onclick = function() {
