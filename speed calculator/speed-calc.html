@@ -28,7 +28,11 @@
     <h4 id="valueSlider"></h4>
   </div>
 
-<input id="btn" type="button" value="Berechnen">
+<h3 class="head">Neue Hördauer</h3>
+<div class="slidecontainer">
+    <h4 id="valueLength">27 Stunden 45 Minuten</h4>
+  </div>
+
 <a id="ghost-btn" href="../index.html">Wechseln zu Book Converter</a>
 
 
@@ -42,7 +46,12 @@
         font-size: 80px;
         margin-left: 16px;
     }
-
+    
+    h4 {
+        font-family: 'Inter', sans-serif;
+        font-size: 40px;
+    }
+    
     .head {
         font-family: 'Inter', sans-serif;
         font-size: 50px;
@@ -155,11 +164,10 @@
     </style>   
 
 <script>
+    var lsHour = localStorage.getItem('hour');
+    var lsMinute = localStorage.getItem('minute');
     
     function getLength() {
-        var lsHour = localStorage.getItem('hour');
-        var lsMinute = localStorage.getItem('minute');
-        console.log(lsHour + " " + lsMinute);
         document.getElementById("dTH").value = lsHour;
         document.getElementById("dTM").value = lsMinute;
         }
@@ -169,23 +177,16 @@
     document.getElementById("dTH").select();
     
      function formel() {
-        var durationTotalH = document.getElementById("dTH").value;
-        var durationTotalM = document.getElementById("dTM").value;
-  
-
-
-        var durationTotal = durationTotalH * 60 + parseInt(durationTotalM);
-
-        localStorage.setItem('hour', durationTotalH);
-        localStorage.setItem('minute', durationTotalM);
+        
     }
     var slider = document.getElementById("rangeSlider");
-    var output = document.getElementById("valueSlider");
-
-    output.innerHTML = slider.value;
-
+    var timeAdj = document.getElementById("valueSlider");
+    var newTime = document.getElementById("valueLength");
+    
+    timeAdj.innerHTML = slider.value;
+    newTime.innerHTML = lsHour + " Stunden " + lsMinute + " Minuten"
     slider.oninput = function() {
-        output.innerHTML = this.value;
+        timeAdj.innerHTML = this.value;
     }
 
     document.getElementById("boxed").onclick = function() {
