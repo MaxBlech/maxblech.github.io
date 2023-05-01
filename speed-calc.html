@@ -67,13 +67,18 @@
     
     var totalMinutes = parseInt(lsHour) * 60 + parseInt(lsMinute);
     
-    document.getElementById("tester").innerHTML = totalMinutes;
+   
     
     slider.oninput = function() {
-        timeAdj.innerHTML = (this.value/100).toFixed(2);
         
-        var newTime = totalMinutes / this.value;
-        //newHour.value = 
+        var sliderShown = (this.value/100).toFixed(2);
+        timeAdj.innerHTML = sliderShown;
+        
+        var newTime = (totalMinutes / sliderShown) / 60;
+        var splitTime = newTime.toString().split('.');
+         document.getElementById("tester").innerHTML = totalMinutes;
+        newHour.value = splitTime[0];
+        newMinute.value = splitTime[1];
     }
 
     document.getElementById("boxed").onclick = function() {
