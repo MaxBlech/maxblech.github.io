@@ -19,9 +19,9 @@
 
 <h3 class="head">Buchlänge</h3>
 <form>
-    <input id="dTH" type="number" pattern="\d*"><br>
+    <input id="blH" type="number" pattern="\d*"><br>
     <p class="dPunkt">:</p>
-    <input id="dTM" type="number" pattern="\d*"><br>
+    <input id="blM" type="number" pattern="\d*"><br>
 </form>
 
 <input id="btn" type="button" value="Aktualisieren">
@@ -46,17 +46,22 @@
     </style>   
 
 <script>
-    var lsHour = localStorage.getItem('hour');
-    var lsMinute = localStorage.getItem('minute');
+    var blHour = localStorage.getItem('hourBook');
+    var blMinute = localStorage.getItem('minuteBook');
     
     function getLength() {
-        document.getElementById("dTH").value = lsHour;
-        document.getElementById("dTM").value = lsMinute;
+        document.getElementById("blH").value = blHour;
+        document.getElementById("blM").value = blMinute;
         }
         
     getLength();
     
-    document.getElementById("dTH").select();
+    var totalMinutes = parseInt(blHour) * 60 + parseInt(blMinute);
+    
+    document.getElementById("btn").onclick = function() {
+        totalMinutes = parseInt(blHour) * 60 + parseInt(blMinute);
+        
+    }
     
     var slider = document.getElementById("rangeSlider");
     var timeAdj = document.getElementById("valueSlider");
@@ -64,12 +69,8 @@
     var newMinute = document.getElementById("nM");
     
     timeAdj.innerHTML = (slider.value/100).toFixed(2);
-    newHour.value = lsHour;
-    newMinute.value = lsMinute;
-    
-    var totalMinutes = parseInt(lsHour) * 60 + parseInt(lsMinute);
-    
-   
+    newHour.value = blHour;
+    newMinute.value = blMinute;
     
     slider.oninput = function() {
         
@@ -81,10 +82,6 @@
         
         newHour.value = splitTime[0];
         newMinute.value = Math.floor((newTime - splitTime[0]) * 60);
-    }
-
-    document.getElementById("boxed").onclick = function() {
-        document.getElementById("boxed").style.display = "none";
     }
     
     </script>
