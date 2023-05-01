@@ -76,9 +76,9 @@
         
         var newTime = (totalMinutes / sliderShown) / 60;
         var splitTime = newTime.toString().split('.');
-         document.getElementById("tester").innerHTML = totalMinutes;
+        
         newHour.value = splitTime[0];
-        newMinute.value = splitTime[1];
+        newMinute.value = Math.floor((splitTime[0] - newTime) * 60);
     }
 
     document.getElementById("boxed").onclick = function() {
