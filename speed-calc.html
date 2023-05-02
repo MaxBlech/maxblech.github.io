@@ -53,8 +53,8 @@
     
     document.getElementById("take-that").onclick = function() {
         
-        document.getElementById("blH").value = blHour;
-        document.getElementById("blM").value = blMinute;
+        blHour = document.getElementById("blH").value;
+        blMinute = document.getElementById("blM").value;
         
         totalMinutes = parseInt(blHour) * 60 + parseInt(blMinute);
         
