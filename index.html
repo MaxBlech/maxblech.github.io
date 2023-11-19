@@ -66,10 +66,9 @@
         var durationLeft = durationLeftH * 60 + parseInt(durationLeftM);
         var durationHeard = parseInt(durationTotal) - parseInt(durationLeft);
         //var percentage = 100 * durationHeard / durationTotal;
-        var minutes = durationTotal - durationHeard;
 
         //document.getElementById("result").innerHTML = (Math.round(percentage * 10) / 10) + "%";
-        document.getElementById("result").innerHTML = minutes + " minutes";
+        document.getElementById("result").innerHTML = durationHeard + " minutes";
         localStorage.setItem('hour', durationTotalH);
         localStorage.setItem('minute', durationTotalM);
     }
